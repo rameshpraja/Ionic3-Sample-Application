@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button [menuToggle]="activeMenu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+      <ion-title>DashBord</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-card *ngFor="let category of categories" (click)="openCatList(category)">
+      <img [src]="category.imageUrl" />
+      <div class="card-title">{{category.title}}</div>
+      <div class="card-subtitle">{{category.subtitle}}</div>
+    </ion-card>
+  </ion-content>

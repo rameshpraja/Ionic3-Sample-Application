@@ -1,0 +1,27 @@
+<!-- Start Center Authentication Menu Page -->
+<!-- use when want menu with nav push params - persistent="true" 
+<ion-menu [content]="content"  side="left" id="centerAuthenticated"  persistent="true"></ion-menu>!-->
+
+
+<ion-menu [content]="content"  side="left" id="centerAuthenticated">
+  <ion-content>
+      <div class="menu-header">
+          <img class="user-avatar round" [src]="chosenPicture || placeholder" onerror="this.src='assets/imgs/avatar/avatar2.jpeg'"/>
+          <p class="name">ThanksMummy</p>
+          <p class="e-mail">thanksmummy@gmail.com</p>
+      </div>
+      <ion-list no-lines>
+          
+          <button menuClose="centerAuthenticated" ion-item detail-none *ngFor="let p of centerPages" [class.highlight]="p.active" (click)="openPage(p)">
+              <ion-icon [name]="p.icon" item-left></ion-icon>
+              {{p.title}}
+          </button>
+          <button menuClose="centerAuthenticated" ion-item detail-none (click)="openPage('logout')">
+              <ion-icon  item-left></ion-icon>Logout
+          </button>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+<!-- End Center Authentication Menu Page -->
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

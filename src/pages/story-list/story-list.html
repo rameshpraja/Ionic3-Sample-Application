@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button [menuToggle]="activeMenu">
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Sliding Item</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let storylist of storyLists">
+      <button ion-item detail-none (click)="gotoStoryDetails(storylist)">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="storylist.imageUrl">
+        </ion-thumbnail>
+        <h2>{{storylist.title}}</h2>
+        <p>{{storylist.place}} • {{storylist.date}}</p>
+      </ion-item>
+    </button>
+      <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="viewComments(storylist)">
+        <ion-icon name="chatbubbles"></ion-icon>
+        Comments
+      </button>
+        <button ion-button color="primary" (click)="viewPlayers(storylist)">
+        <ion-icon name="contacts"></ion-icon>
+        Players
+      </button>
+        <button ion-button color="danger" (click)="delete(storylist)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
